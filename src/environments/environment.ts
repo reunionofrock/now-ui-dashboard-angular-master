@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'localHost',
-  reportUrl: 'localHost'
+  apiUrl: 'http://localhost:8080/api',
+  reportUrl: 'http://localhost:8080'
 };

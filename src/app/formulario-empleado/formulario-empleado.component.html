@@ -7,15 +7,15 @@
     <div class="col-sm-6">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Nombre del Empleado</mat-label>
-        <input matInput type="text" [(ngModel)]="name">
+        <input matInput type="text" [(ngModel)]="nameEmployee">
       </mat-form-field>
     </div>
     <div class="col-sm-6">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Puesto del empleado</mat-label>
-        <mat-select placeholder="Elige un puesto">
-          <mat-option *ngFor="let puesto of puestos" (ngModel)="puesto">
-            {{puesto}}
+        <mat-select [(ngModel)]="employeePosition" name="puesto">
+          <mat-option *ngFor="let puesto of sourcePuestos" [value]="puesto.idPuesto">
+            {{puesto.nombre}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -49,9 +49,9 @@
     <div class="col-sm-6" *ngIf="flagVaccine">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Nombre de vacuna</mat-label>
-        <mat-select placeholder="Elige una vacuna">
-          <mat-option *ngFor="let puesto of puestos" (ngModel)="puesto">
-            {{puesto}}
+        <mat-select placeholder="Elige una vacuna" [(ngModel)]="vaccineApplicate">
+          <mat-option *ngFor="let vacuna of sourceVacunas" [value]="vacuna.idVacuna">
+            {{vacuna.nombreVacuna}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -61,7 +61,7 @@
     <div class="col-sm-6" *ngIf="flag1calendar">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Fecha primera dosis</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dateFVaccine">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -69,7 +69,7 @@
     <div class="col-sm-6" *ngIf="flag2calendar">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Fecha segunda dosis</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker"  [(ngModel)]="dateSVaccine">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -78,7 +78,7 @@
   <div class="row">
     <br>
     <div class="col-sm-4">
-      <button disbled="'name.length()>0'" mat-raised-button color="primary" (click)="agregarUsuario()">
+      <button disbled="'name.length()>0'" mat-raised-button color="primary" (click)="validateForm()">
         <mat-icon>add</mat-icon>Agregar Empleado
       </button>
     </div>

@@ -15,6 +15,7 @@
                 <button mat-raised-button color="primary" (click)="openEmployeeForm()">
                   <mat-icon>add</mat-icon>Nuevo Empleado
                 </button>
+                
               </div>
             </div>
             <br>
@@ -30,7 +31,7 @@
           <div class="row">
 
             <div class="col-sm-12">
-              <table mat-table ([dataSource])="dataSource" class="mat-elevation-z8">
+              <mat-table mat-table class="mat-table-hover" [dataSource]="dataSource" class="mat-elevation-z8">
 
                 <!--- Note that these columns can be defined in any order.
                         The actual rendered columns are set as a property on the row definition" -->
@@ -38,37 +39,37 @@
                 <!-- Position Column -->
                 <ng-container matColumnDef="Nombre">
                   <mat-header-cell *matHeaderCellDef> Nombre</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.nombreEmpleado}} </mat-cell>
                 </ng-container>
 
                 <!-- Name Column -->
                 <ng-container matColumnDef="Puesto_Laboral">
                   <mat-header-cell *matHeaderCellDef>Puesto Laboral </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.nombrePuesto}} </mat-cell>
                 </ng-container>
 
                 <!-- Weight Column -->
                 <ng-container matColumnDef="Nombre_Vacuna">
                   <mat-header-cell *matHeaderCellDef> Nombre Vacuna </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.nombreVacuna}} </mat-cell>
                 </ng-container>
 
                 <!-- Symbol Column -->
                 <ng-container matColumnDef="Fecha_primera_dosis">
                   <mat-header-cell *matHeaderCellDef> Fecha primera Dosis </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.fechaDosis1|date:'dd/MM/yyyy'}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="Fecha_segunda_dosis">
                   <mat-header-cell *matHeaderCellDef> Fecha segunda dosis </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.fechaDosis2|date:'dd/MM/yyyy'}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="Estado_de_vacunacion">
                   <mat-header-cell *matHeaderCellDef> Estado de vacunacion</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.estadoVacuna}} </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-              </table>
+              </mat-table>
             </div>
           </div>
       </div>
