@@ -1,0 +1,77 @@
+<section class="content">
+  <br>
+  <br>
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-sm-5 offset-3">
+        <div class="card">
+          <div class="col-sm-12">
+            <div class="header">
+              <h1 class="mt-3"><Strong>Control de Vacunas COVID-19</Strong></h1>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <button mat-raised-button color="primary" (click)="openEmployeeForm()">
+                  <mat-icon>add</mat-icon>Nuevo Empleado
+                </button>
+              </div>
+            </div>
+            <br>
+            <!-- <mat-progress-bar mode="indeterminate" >
+              </mat-progress-bar> -->
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="container">
+        
+          <div class="row">
+
+            <div class="col-sm-12">
+              <table mat-table ([dataSource])="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="Nombre">
+                  <mat-header-cell *matHeaderCellDef> Nombre</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Puesto_Laboral">
+                  <mat-header-cell *matHeaderCellDef>Puesto Laboral </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Nombre_Vacuna">
+                  <mat-header-cell *matHeaderCellDef> Nombre Vacuna </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Fecha_primera_dosis">
+                  <mat-header-cell *matHeaderCellDef> Fecha primera Dosis </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="Fecha_segunda_dosis">
+                  <mat-header-cell *matHeaderCellDef> Fecha segunda dosis </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="Estado_de_vacunacion">
+                  <mat-header-cell *matHeaderCellDef> Estado de vacunacion</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

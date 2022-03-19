@@ -1,0 +1,86 @@
+<section class="content">
+  <div class="header">
+    <h5><Strong>Ingreso de datos del empleado</Strong></h5>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre del Empleado</mat-label>
+        <input matInput type="text" [(ngModel)]="name">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Puesto del empleado</mat-label>
+        <mat-select placeholder="Elige un puesto">
+          <mat-option *ngFor="let puesto of puestos" (ngModel)="puesto">
+            {{puesto}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-label>¿Ha sido vacunado contra COVID-19?</mat-label>
+    </div>
+    <div class="col-sm-6">
+      <mat-radio-group aria-label="¿Ha sido vacunado contra el COVID-19?">
+        <mat-radio-button (click)="vaccine('yes')" color="primary" value="si">Si</mat-radio-button>
+        <mat-radio-button (click)="vaccine('no')" checked color="primary" value="no">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div class="row" *ngIf="flagVaccine">
+    <div class="col-sm-6">
+      <br>
+      <mat-label>¿Dosis administradas?</mat-label>
+    </div>
+    <div class="col-sm-6">
+      <br>
+      <mat-radio-group aria-label="¿Ha sido vacunado contra el COVID-19?">
+        <mat-radio-button (click)="vaccineDossis('1')" color="primary" checked value="1">Una</mat-radio-button>
+        <mat-radio-button (click)="vaccineDossis('2')" color="primary" value="2">Dos</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6" *ngIf="flagVaccine">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de vacuna</mat-label>
+        <mat-select placeholder="Elige una vacuna">
+          <mat-option *ngFor="let puesto of puestos" (ngModel)="puesto">
+            {{puesto}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6" *ngIf="flag1calendar">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha primera dosis</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6" *ngIf="flag2calendar">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha segunda dosis</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <br>
+    <div class="col-sm-4">
+      <button disbled="'name.length()>0'" mat-raised-button color="primary" (click)="agregarUsuario()">
+        <mat-icon>add</mat-icon>Agregar Empleado
+      </button>
+    </div>
+  </div>
+</section>
