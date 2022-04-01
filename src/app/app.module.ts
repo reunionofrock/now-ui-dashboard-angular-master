@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MaterialModule } from './material-module';
 import { FormularioEmpleadoComponent } from './formulario-empleado/formulario-empleado.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     AdminLayoutComponent,
     FormularioEmpleadoComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
 
   ],
   providers: [],

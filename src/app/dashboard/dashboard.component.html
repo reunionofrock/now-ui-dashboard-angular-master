@@ -3,19 +3,39 @@
   <br>
   <div class="container-fluid">
     <div class="row clearfix">
-      <div class="col-sm-5 offset-3">
+      <div class="col-sm-12">
         <div class="card">
           <div class="col-sm-12">
             <div class="header">
-              <h1 class="mt-3"><Strong>Control de Vacunas COVID-19</Strong></h1>
+              <div class="col-sm-4">
+                <h1 class="mt-3"><Strong>Prueba Tecnica</Strong></h1>
+              </div>
+              <div class="col-sm-3">
+                <button mat-raised-button color="primary" (click)="logOut()">
+                  <mat-icon>logout</mat-icon>LogOut
+                </button>
+              </div>
+             
             </div>
             <hr>
             <div class="row">
-              <div class="col-sm-3">
-                <button mat-raised-button color="primary" (click)="openEmployeeForm()">
-                  <mat-icon>add</mat-icon>Nuevo Empleado
+              <div class="col-sm-3 offset-4">
+                <h3><strong>Consulta numeros Romanos</strong></h3>
+                <p>Por favor ingresa el numero que deseas consultar</p>
+              </div>
+              <div class="col-sm-3 offset-4">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Numero a consultar</mat-label>
+                  <input matInput type="number" (keyup.enter)="getRomanNumber()" [(ngModel)]="numeroGregoriano">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="getRomanNumber()">
+                  <mat-icon>add</mat-icon>Consultar
                 </button>
-                
+              </div>
+
+              <div class="col-sm-3 offset-6">
+                <h4><strong>numero encontrado es: </strong> {{nummeroRomanoResponse}}</h4>
+
               </div>
             </div>
             <br>
@@ -23,55 +43,58 @@
               </mat-progress-bar> -->
           </div>
         </div>
-      </div>
-      <br>
-
-      <div class="container">
-        
-          <div class="row">
-
-            <div class="col-sm-12">
-              <mat-table mat-table class="mat-table-hover" [dataSource]="dataSource" class="mat-elevation-z8">
-
-                <!--- Note that these columns can be defined in any order.
-                        The actual rendered columns are set as a property on the row definition" -->
-
-                <!-- Position Column -->
-                <ng-container matColumnDef="Nombre">
-                  <mat-header-cell *matHeaderCellDef> Nombre</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.nombreEmpleado}} </mat-cell>
-                </ng-container>
-
-                <!-- Name Column -->
-                <ng-container matColumnDef="Puesto_Laboral">
-                  <mat-header-cell *matHeaderCellDef>Puesto Laboral </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.nombrePuesto}} </mat-cell>
-                </ng-container>
-
-                <!-- Weight Column -->
-                <ng-container matColumnDef="Nombre_Vacuna">
-                  <mat-header-cell *matHeaderCellDef> Nombre Vacuna </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.nombreVacuna}} </mat-cell>
-                </ng-container>
-
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="Fecha_primera_dosis">
-                  <mat-header-cell *matHeaderCellDef> Fecha primera Dosis </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.fechaDosis1|date:'dd/MM/yyyy'}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="Fecha_segunda_dosis">
-                  <mat-header-cell *matHeaderCellDef> Fecha segunda dosis </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.fechaDosis2|date:'dd/MM/yyyy'}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="Estado_de_vacunacion">
-                  <mat-header-cell *matHeaderCellDef> Estado de vacunacion</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.estadoVacuna}} </mat-cell>
-                </ng-container>
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-              </mat-table>
+        <br>
+        <div class="card">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-4 offset-1">
+                <br>
+                <button mat-raised-button color="primary" (click)="listNits()">
+                  <mat-icon>add</mat-icon>Consultar
+                </button>
+              </div>
             </div>
           </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <mat-table mat-table class="mat-table-hover" [dataSource]="dataSource" class="mat-elevation-z8">
+                  <ng-container matColumnDef="age">
+                    <mat-header-cell *matHeaderCellDef>Edad</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="birthdate">
+                    <mat-header-cell *matHeaderCellDef>Cumpleaños</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.birthdate}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="gender">
+                    <mat-header-cell *matHeaderCellDef>Genero</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="middleName">
+                    <mat-header-cell *matHeaderCellDef>Apellido</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.middleName}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="nit">
+                    <mat-header-cell *matHeaderCellDef>Nit</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nit}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef>Estado</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.res}} </mat-cell>
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

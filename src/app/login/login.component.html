@@ -1,0 +1,77 @@
+<section class="content">
+  <div class="row justify-content-center">
+
+    <div class="col-sm-3">
+      <div class="header">
+
+        <h2>Bienvenido a la Prueba Tecnica</h2>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-6 offset-5">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput type="text" autofill="off" autocomplete="off" [(ngModel)]="user">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" autocomplete="off" (keyup.enter)="iniciarSesion()" [(ngModel)]="userPassword">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 offset-5">
+      <br>
+      <button mat-raised-button color="primary" (click)="iniciarSesion()">
+        <mat-icon>account_circle</mat-icon> Iniciar Sesion
+      </button>
+      <button mat-raised-button class="ml-1" color="primary" (click)="showRegisterForm()">
+        <mat-icon>app_registration</mat-icon>Registrate
+      </button>
+      <!-- <button mat-raised-button class="ml-1" color="primary" (click)="iniciarSesion()">
+        <mat-icon>app_registration</mat-icon>Recuperar Contraseña
+      </button> -->
+    </div>
+  </div>
+  <br>
+  <div class="col-sm-12" >
+    <div class="row" *ngIf="flagRegisterForm">
+      <div class="col-sm-6 offset-4">
+        <h3><strong>Formulario de Registro</strong></h3>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Ingresa tu nombre</mat-label>
+          <input matInput type="text" autofill="off" autocomplete="off" [(ngModel)]="nameRegister">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width ml-1">
+          <mat-label>Ingresa tu nombre de Usuario</mat-label>
+          <input matInput type="text" autofill="off" autocomplete="off" [(ngModel)]="nickNameRegister">
+        </mat-form-field><br>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Ingresa tu email</mat-label>
+          <input matInput type="text" autofill="off" autocomplete="off" [(ngModel)]="emailRegister">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width ml-1">
+          <mat-label>Ingresa tu constraseña</mat-label>
+          <input matInput type="text" autofill="off" autocomplete="off" [(ngModel)]="passwordRegister">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row" *ngIf="flagRegisterForm">
+      <div class="col-sm-6 offset-4">
+        <button mat-raised-button class="ml-1" color="primary" (click)="registroUsuario()">
+          <mat-icon>app_registration</mat-icon>Registro
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</section>

@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 
@@ -41,5 +43,12 @@ export class ApiService {
     options: any = { responseType: 'blob' }
   ) {
     return this.http.post(`${environment.reportUrl}/${url}`, payload, options);
+  }
+
+  apiSoap(data: any){
+    var headers = new HttpHeaders().set('Content-Type','text/xml');
+    return this.http.post(`${environment.apiSoap}`, data,
+    {headers,responseType:'text'})
+    .pipe(map((res:any)=>res));
   }
 }

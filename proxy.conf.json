@@ -1,0 +1,9 @@
+{   
+    "http://f37a-143-208-56-89.ngrok.io/ValidarNitService/ValidarNitService": {
+        "target": "http://localhost:4200",
+        "secure": false,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+  }

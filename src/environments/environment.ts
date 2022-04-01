@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080/api',
-  reportUrl: 'http://localhost:8080'
+  reportUrl: 'http://localhost:8080',
+  apiSoap: 'http://f37a-143-208-56-89.ngrok.io/ValidarNitService/ValidarNitService'
 };
